@@ -1,0 +1,29 @@
+﻿@model List<EjercicioMVC.Models.EmpleadCLS>
+
+<h2>Lista de Empleados</h2>
+@Html.ActionLink("Agregar", "Agregar", "Empleado", null, new { @class = "btn btn-primary" })
+
+@Html.ActionLink("Ver Todos", "VerTodos", "Empleado", null, new { @class = "btn btn-primary" })
+@Html.ActionLink("Ver Empleados Habilitados", "VerHabilitados", "Empleado", null, new { @class = "btn btn-primary" })
+
+
+
+<br />
+<br />
+@using (Html.BeginForm())
+{
+    <p>
+        Nombre: <input type="text" name="Buscar" class="form-text" />
+        <input type="submit" value="Buscar" class="btn btn-sm btn-info" />
+    </p>
+}
+
+
+
+<div id="listaEmpleados">
+    @Html.Partial("VistaListaEmpleados", Model)
+
+</div>
+
+@Html.ActionLink("Exportar a Excel", "ExportarAExcel", "Empleado", null, new { @class = "btn btn-secondary" })
+@Html.ActionLink("Imprimir Pdf", "PrintPDF", new { Buscar = ViewBag.Buscar }, new { @class = "btn btn-secondary" })

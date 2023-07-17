@@ -1,0 +1,50 @@
+﻿@using EjercicioMVC.Models
+@model EmpleadCLS
+
+@{
+    ViewBag.Title = "Agregar";
+    List<SelectListItem> listaSexo = ViewBag.lista as List<SelectListItem>;
+    if (listaSexo == null)
+    {
+        listaSexo = new List<SelectListItem>();
+    }
+}
+
+<h2>Agregar Empleados</h2>
+
+<div class="row">
+    <div class="col-md-6">
+        @using (Html.BeginForm("Agregar", "Empleado", FormMethod.Post))
+        {
+            <div>
+                @Html.LabelFor(p => p.NOMBRE)
+                @Html.TextBoxFor(p => p.NOMBRE, new { @class = "form-control" })
+                @Html.ValidationMessageFor(p => p.NOMBRE, "", new { @class = "text-danger" })
+            </div>
+            <div>
+                @Html.LabelFor(p => p.APELLIDO)
+                @Html.TextBoxFor(p => p.APELLIDO, new { @class = "form-control" })
+                @Html.ValidationMessageFor(p => p.APELLIDO, "", new { @class = "text-danger" })
+            </div>
+            <div>
+                @Html.LabelFor(p => p.FECHACONTRATO)
+                @Html.EditorFor(p => p.FECHACONTRATO, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+            <div>
+                @Html.LabelFor(p => p.SUELDO)
+                @Html.TextBoxFor(p => p.SUELDO, new { @class = "form-control" })
+                @Html.ValidationMessageFor(p => p.SUELDO, "", new { @class = "text-danger" })
+            </div>
+            <div>
+                @Html.LabelFor(p => p.IDSEXO)
+                @Html.DropDownListFor(p => p.IDSEXO, listaSexo, "-- Seleccione --", new { @class = "form-control" })
+                @Html.ValidationMessageFor(p => p.IDSEXO, "", new { @class = "text-danger" })
+            </div>
+            <br />
+            <div style="margin:auto">
+                <input type="submit" class="btn btn-primary" value="Agregar" />
+                @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-default" })
+            </div>
+        }
+    </div>
+</div>

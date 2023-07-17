@@ -1,0 +1,48 @@
+﻿@using EjercicioMVC.Models
+@model EmpleadCLS
+
+@{
+    ViewBag.Title = "Modificar";
+    List<SelectListItem> listaSexo = (List<SelectListItem>)ViewBag.lista;
+}
+
+<h2>Modificar</h2>
+
+@using (Html.BeginForm("Modificar", "Empleado", FormMethod.Post))
+{
+    @Html.HiddenFor(model => model.IDEMPLEADO)
+
+    <div>
+        @Html.LabelFor(p => p.NOMBRE)
+        @Html.TextBoxFor(p => p.NOMBRE, new { @class = "form-control" })
+        @Html.ValidationMessage("Nombre", new { @class = "text-danger" })
+    </div>
+    <div>
+        @Html.LabelFor(p => p.APELLIDO)
+        @Html.TextBoxFor(p => p.APELLIDO, new { @class = "form-control" })
+        @Html.ValidationMessage("Apellido", new { @class = "text-danger" })
+    </div>
+
+    <div>
+        @Html.LabelFor(p => p.FECHACONTRATO)
+        @Html.EditorFor(p => p.FECHACONTRATO, new { HtmlAttributes = new { @class = "form-control" } })
+    </div>
+    <div>
+        @Html.LabelFor(p => p.SUELDO)
+        @Html.TextBoxFor(p => p.SUELDO, new { @class = "form-control" })
+        @Html.ValidationMessage("Sueldo", new { @class = "text-danger" })
+    </div>
+    <div>
+        @Html.LabelFor(p => p.IDSEXO)
+        @Html.DropDownListFor(p => p.IDSEXO, new SelectList(ViewBag.lista, "Value", "Text", Model.IDSEXO), "--Seleccione--", new { @class = "form-control" })
+        @Html.ValidationMessage("Sexo", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Guardar" class="btn btn-primary" />
+        @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-default" })
+    </div>
+}
+
+
+
