@@ -15,7 +15,9 @@ namespace TestLoginEmpleado.Controllers
     public class AccesoController : Controller
     {
 
-        static string cadena = "Data Source=DESKTOP-U4J8EC0;Initial Catalog=Ejercicio;Integrated Security=true";
+       
+
+        static string cadena = "Data Source=DESKTOP-U4J8EC0;Initial Catalog=Ejercicio;Integrated Security=true";  //cadena local
 
 
 

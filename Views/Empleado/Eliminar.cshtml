@@ -4,19 +4,34 @@
     ViewBag.Title = "Eliminar Empleado";
 }
 
-<h2>Eliminar Empleado</h2>
+<!DOCTYPE html>
 
-<div class="alert alert-danger">
-    <p>¿Está seguro de que desea eliminar el empleado <strong>@Model.NOMBRE @Model.APELLIDO</strong>?</p>
-</div>
+<html>
 
-@using (Html.BeginForm("Eliminar", "Empleado", FormMethod.Post))
-{
-    @Html.HiddenFor(model => model.IDEMPLEADO)
 
-    <div class="form-group">
-        <input type="submit" value="Eliminar" class="btn btn-danger" />
-        @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-default" })
+  <body>
+
+    <h2>Eliminar Empleado</h2>
+
+    <div class="alert alert-danger">
+        <p>¿Está seguro de que desea eliminar el empleado <strong>@Model.NOMBRE @Model.APELLIDO</strong>?</p>
     </div>
-}
+
+    @using (Html.BeginForm("Eliminar", "Empleado", FormMethod.Post))
+    {
+        @Html.HiddenFor(model => model.IDEMPLEADO)
+
+        <div class="form-group">
+            <input type="submit" value="Eliminar" class="btn btn-danger" />
+            @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-default" })
+        </div>
+    }
+
+
+
+
+  </body>
+
+
+</html>
 

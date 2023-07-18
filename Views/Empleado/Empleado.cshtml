@@ -5,66 +5,118 @@
     ViewBag.Title = "Empleado";
 }
 
+<!DOCTYPE html>
 
+<html>
+   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lista Empleados</title>
 
-<h2> Lista de Empleados</h2>
-@Html.ActionLink("Agregar","Agregar","Empleado",null,new {@class= "btn btn-primary" } )
+    <!-- Referencias de Bootstrap  si no tengo internet-->
+    @*<link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+        <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+        <link href="~/Content/bootstrap.css" rel="stylesheet" />
+        <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+        <link href="~/Content/font-awesome.css" rel="stylesheet" />
+        <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+        <link href="~/Content/Site.css" rel="stylesheet" />
 
-<table class="table tab-content table-bordered table-hover">
-    <thead style="color:darkseagreen">
+        <script src="~/Scripts/bootstrap.min.js"></script>
+        <script src="~/Scripts/bootstrap.js"></script>
+        <script src="~/Scripts/jquery-3.4.1.intellisense.js"></script>
 
-        <tr>
-            <td width="5%"><b>Empleado</b></td>
-            <td width="15%"><b>Nombre</b></td>
-            <td width="15%"><b>Apellido</b></td>
-            <td width="15%"><b>Fecha de Contrato</b></td>
-            <td width="10%"><b>Sueldo</b></td>
-            <td width="10%"><b>Sexo</b></td>
-            <td width="20%"><b>Operaciones</b></td>
-        </tr>
+        <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+        <script src="~/Scripts/jquery-3.4.1.slim.js"></script>
+        <script src="~/Scripts/jquery-3.4.1.slim.min.js"></script>
+        <script src="~/Scripts/jquery.validate-vsdoc.js"></script>
+        <script src="~/Scripts/jquery.validate-vsdoc.js"></script>
+        <script src="~/Scripts/jquery.validate.js"></script>
+        <script src="~/Scripts/jquery.validate.min.js"></script>
+        <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+        <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+        <script src="~/Scripts/modernizr-2.8.3.js"></script>*@
 
-    </thead>
+    <!-- Referencias de Bootstrap  on line y para el sitio -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+   </head>
+   
+  <body>
 
-    <tbody>
-        @foreach (var item in Model) 
-        { 
-            <tr class="text-warning">
+    
 
-                <td>
-                    <strong>@item.IDEMPLEADO</strong>
-                </td>
-                <td>
-                    <strong>@item.NOMBRE</strong>
-                </td>
-                <td>
-                    <strong>@item.APELLIDO</strong>
-                </td>
-                <td>
-                    <strong>@item.FECHACONTRATO</strong>
-                </td>
-                <td>
-                    <strong>@item.SUELDO</strong>
-                </td>
-                <td>
-                    @if (item.IDSEXO == 1)
-                    {
-                       <strong>Femenino</strong>
+    <div>
+        @Html.ActionLink("Agregar", "Agregar", "Empleado", null, new { @class = "btn btn-primary" })
 
-                    }
-                    else 
-                    {
-                        <strong>Masculino</strong>
-                    }
-                </td>
-                <td>MODIFICAR|ELIMINAR<td>
+    </div>
+   
+
+    <table class="table tab-content table-bordered table-hover">
+        <thead style="color:darkseagreen">
+
+            <tr>
+                <td width="5%"><b>Empleado</b></td>
+                <td width="15%"><b>Nombre</b></td>
+                <td width="15%"><b>Apellido</b></td>
+                <td width="15%"><b>Fecha de Contrato</b></td>
+                <td width="10%"><b>Sueldo</b></td>
+                <td width="10%"><b>Sexo</b></td>
+                <td width="20%"><b>Operaciones</b></td>
             </tr>
-        
-        
-        }
+
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="text-warning">
+
+                    <td>
+                        <strong>@item.IDEMPLEADO</strong>
+                    </td>
+                    <td>
+                        <strong>@item.NOMBRE</strong>
+                    </td>
+                    <td>
+                        <strong>@item.APELLIDO</strong>
+                    </td>
+                    <td>
+                        <strong>@item.FECHACONTRATO</strong>
+                    </td>
+                    <td>
+                        <strong>@item.SUELDO</strong>
+                    </td>
+                    <td>
+                        @if (item.IDSEXO == 1)
+                        {
+                            <strong>Femenino</strong>
+
+                        }
+                        else
+                        {
+                            <strong>Masculino</strong>
+                        }
+                    </td>
+                    <td>MODIFICAR|ELIMINAR
+                    <td>
+                </tr>
 
 
-    </tbody>
+            }
 
 
-</table>
+        </tbody>
+
+
+    </table>
+
+
+  </body>
+
+
+</html>
+
+
 

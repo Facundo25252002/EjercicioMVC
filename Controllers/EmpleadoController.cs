@@ -91,6 +91,8 @@ namespace EjercicioMVC.Controllers
            
         
         }
+
+        [ValidarSesion]
         public ActionResult HabilitarEmpleado(int id)
         {
             try
@@ -115,8 +117,8 @@ namespace EjercicioMVC.Controllers
             }
         }
 
-        
 
+        [ValidarSesion]
         public ActionResult VerTodos()
         {
             List<EmpleadCLS> listaEmpleados = null;
@@ -139,6 +141,8 @@ namespace EjercicioMVC.Controllers
            // return RedirectToAction("Index");
         }
 
+
+        [ValidarSesion]
         public ActionResult VerHabilitados()
         {
             List<EmpleadCLS> listaEmpleados = null;
@@ -167,7 +171,7 @@ namespace EjercicioMVC.Controllers
 
 
 
-
+        [ValidarSesion]
         [HttpGet]
         public ActionResult Agregar()
         {
@@ -177,6 +181,7 @@ namespace EjercicioMVC.Controllers
             return View(oEmpleadoCLS);
         }
 
+        [ValidarSesion]
         [HttpPost]
         public ActionResult Agregar(EmpleadCLS oEmpleadoCLS)
         {
@@ -229,6 +234,7 @@ namespace EjercicioMVC.Controllers
         }
 
 
+        [ValidarSesion]
         [HttpGet]
         public ActionResult Modificar(int id)
         {
@@ -260,6 +266,7 @@ namespace EjercicioMVC.Controllers
 
 
 
+        [ValidarSesion]
         [HttpPost]
         public ActionResult Modificar(EmpleadCLS oEmpleadoCLS)
         {
@@ -310,6 +317,7 @@ namespace EjercicioMVC.Controllers
         }
 
 
+        [ValidarSesion]
         public ActionResult Eliminar(int id)
         {
             try
@@ -335,10 +343,10 @@ namespace EjercicioMVC.Controllers
             }
         }
 
-   
 
 
 
+        [ValidarSesion]
         // Metodo para cerrar sesion  vuelvo nulo Session["usuario"] , redirijo a  la pag login en el controlador de Acceso
         public ActionResult CerrarSesion()
         {
@@ -347,6 +355,8 @@ namespace EjercicioMVC.Controllers
         }
 
 
+
+        [ValidarSesion]
         public ActionResult PrintPDF(string Buscar)
         {
             List<EmpleadCLS> listaEmpleados = null;
@@ -392,6 +402,8 @@ namespace EjercicioMVC.Controllers
             };
         }
 
+
+        [ValidarSesion]
         public ActionResult ExportarAExcel()
         {
             List<EmpleadCLS> listaEmpleados = null;
